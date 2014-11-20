@@ -1,5 +1,5 @@
 <h1>Sign Up Form</h1>
-<%= form_for :user do |f| %>
+<%= form_for :user, url: '/users' do |f| %>
   <p>
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -17,7 +17,7 @@
 
   <p>
     <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </p>
 
   <p>

@@ -1,8 +1,10 @@
 class SessionsController < ApplicationController
   def create
-    if user = User.authenticate(params:email),params[:password])
-      session[:current_user_id] = user.current_user_id
+    @user = User.find_by(email: params[:user][:email])
+    if @user.authenticate(params[:user][:password])
+      session[:current_user_id] = @user.id
       redirect_to posts_path
+    end
   end
 
   def destroy

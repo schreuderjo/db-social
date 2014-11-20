@@ -1,0 +1,5 @@
+current user id: <%=session[:current_user_id]%><br><br>
+<%= link_to "Logout", "/", method: :delete%>
+<h1><%="#{current_user.first_name} #{current_user.last_name}'s" %> Home page!!</h1> <br>
+<img src= <%="#{current_user.avatar}"%>>
+
