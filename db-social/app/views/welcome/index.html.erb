@@ -1,0 +1,20 @@
+<h1>Welcome to db:social</h1>
+<%= form_for :session do |f| %>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
+  </p>
+
+  <p>
+    <%= f.submit "Login" %>
+  </p>
+<% end %>
+
+<%= link_to new_user_path do %>
+<button>Sign Up</button>
+<% end %>
