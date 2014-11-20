@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :nices
   has_many :posts
   has_many :comments, through: :posts
+  has_many :favorites
   has_many :resources, through: :favorites
 
   validates :email, uniqueness: true
