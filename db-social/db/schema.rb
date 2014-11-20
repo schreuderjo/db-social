@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20141120044006) do
     t.datetime "updated_at"
   end
 
+  create_table "favorites", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "nices", force: true do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -30,6 +37,15 @@ ActiveRecord::Schema.define(version: 20141120044006) do
   create_table "posts", force: true do |t|
     t.integer  "user_id"
     t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resources", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.text     "description"
+    t.boolean  "global_resource", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
