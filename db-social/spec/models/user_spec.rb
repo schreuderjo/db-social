@@ -43,9 +43,27 @@ describe User do
     end
   end
 
-  context 'passing validaitons' do
+  context 'passing validations' do
     it 'passes when all required fields are valid' do
       expect(@valid_user).to be_valid
+    end
+  end
+
+  context 'associations' do
+    it 'has a nices method' do
+      expect(@valid_user).to respond_to(:nices)
+    end
+
+    it 'has a posts method' do
+      expect(@valid_user).to respond_to(:posts)
+    end
+
+    it 'has a comments method' do
+      expect(@valid_user).to respond_to(:comments)
+    end
+
+    it 'has a resources method' do
+      expect(@valid_user).to respond_to(:resources)
     end
   end
 end
