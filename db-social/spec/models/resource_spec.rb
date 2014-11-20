@@ -9,6 +9,13 @@ describe Resource do
                                 url: "http://mentoring.devbootcamp.com/",
                                 description: "Such a great app!",
                                 )}
+  let(:large_string) do
+    string = ""
+    141.times do
+      string << ('a'..'z').to_a.sample
+    end
+    string
+  end
 
   context '#associations' do
 
@@ -47,15 +54,19 @@ describe Resource do
     end
 
     it 'sets the global_resource field default as false' do
-      pending
       @resource.save
-      expect(@resource.global_resource).to eq(false)
+      expect(resource.global_resource).to eq(false)
     end
 
+    #this is a frail test/does not pass with numbers or non-empty strings
     it 'only accepts booleans for global_resource' do
-      @resource.save
-      @resource.global_resource = "cats"
-      expect(@resource.errors[:global_resource]).not_to be_empty
+      resource.update(global_resource: "")
+      expect(resource.errors[:global_resource]).not_to be_empty
+    end
+
+    it 'limits the length of description to 140 characters' do
+      @resource.update(description: large_string)
+      expect(@resource.errors[:description]).not_to be_empty
     end
   end
 end
