@@ -1,0 +1,26 @@
+<div class="boot-profile">
+  <%= link_to "Logout", "/sessions/:id", method: :delete %>
+  <h1><%="#{current_user.first_name} #{current_user.last_name}'s" %> Home page!!</h1> <br>
+  <img class="user-avatar" src=<%="#{current_user.avatar}"%>>
+
+  current user id: <%=session[:current_user_id]%><br>
+  test_email: <strong><%=User.first.email%></strong><br>
+</div>
+
+
+
+<div class="all-posts">
+
+  <%= form_for :post, url: posts_path  do |f| %>
+    <p><%= f.submit "New Post", id: "new-post-button" %></p>
+  <% end %>
+
+  <div class="post-form hidden">
+    <%= render partial: "posts/new_post", layout: false %>
+  </div>
+
+  <% @posts.each do |post| %>
+    <%= render partial: "posts/show_post", layout: false, locals: {post: post} %>
+  <% end %>
+</div>
+

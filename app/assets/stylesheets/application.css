@@ -39,7 +39,7 @@ ul li {
   list-style-type: none;
   margin-left: 0;
 }
- 
+
  .recruit {
    position: absolute;
    top: 5px;
@@ -95,7 +95,7 @@ ul li {
   margin-right: 10px;
   margin-bottom: 40px;
   float: left;
-  
+
 }
 
 .temp-user-id {
@@ -187,6 +187,7 @@ header form input {
   left: 5%;
   width: 30%;
   box-shadow: 2px 3px 10px darkgrey;
+
 }
 
 .all-posts {
@@ -194,7 +195,7 @@ header form input {
   width: 50%;
   margin-left: 50%;
 }
-  
+
 th {
     text-align: left;
 }
@@ -247,7 +248,7 @@ form input[type="password"] {
   top: -12px;
   right: 20px;
   color: darkgrey;
-  
+
 }
 
 .header-links ul li {
@@ -280,7 +281,7 @@ form input[type="password"] {
 
 .nice-action p, .nice-action a {
 /*    background-color: red; */
-   display: inline-block; 
+   display: inline-block;
    font-size: 12px;
 }
 
@@ -362,7 +363,7 @@ form input[type="password"] {
   padding: 5px;
   background-color: #eeeeee;
   border-radius: 5px;
-  
+
 }
 
 .tweet-size-advice-label {
@@ -376,3 +377,8 @@ form input[type="password"] {
   margin: 0;
   padding: 0;
 }
+
+.post-form {
+  display: block;
+}
+
