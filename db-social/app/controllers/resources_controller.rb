@@ -4,7 +4,6 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    binding.pry
     @resource = Resource.new(resource_params)
     if @resource.save
       @favorite = Favorite.new(resource_id: @resource.id, user_id: current_user.id)
@@ -29,7 +28,6 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @resource = Resource.find(params[:id])
     @resource.destroy
     @resource.favorites.where(user_id: current_user.id).first.destroy
