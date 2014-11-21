@@ -1,0 +1,31 @@
+<h2>Manage Your Favorite Resources</h2>
+<ul>
+  <% if @favorite_resources != nil %>
+    <% @favorite_resources.each do |resource| %>
+      <li><%= resource.name %> <%= link_to "Edit", edit_resource_path(resource.id)
+   %> | <%= link_to "Delete", resource_path(resource.id), method: :delete, data: { confirm: "Are you sure?" } %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h3>Add a New Resource</h3>
+<%= form_for :resource, url: "/resources", method: "post" do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+<% end %>
