@@ -1,5 +1,6 @@
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 <img src=<%=@user.avatar %>>
+  <%= link_to "Edit profile", edit_user_path(current_user) %>
 <p><strong>Email: </strong><%= @user.email %></p>
 <p><strong>Quirk: </strong><%= @user.quirk %></p>
 <p><strong>Tweet Sized Piece of Advice: </strong><%= @user.tweet_size_advice %></p>
@@ -10,6 +11,7 @@
   <% end %>
 </ul>
 <% if current_user == @user %>
-  <%= link_to "Edit", edit_user_path(current_user) %>
+  <%= link_to "Manage Favorite Resources", user_favorites_path(current_user) %>
+
 <% end %>
 

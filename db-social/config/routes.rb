@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # post "/signin", to: "sessions#create", as: "signin"
 
   resources :sessions
-  resources :users
+  resources :users do
+    resources :favorites
+  end
   resources :posts
   resources :resources
 

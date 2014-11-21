@@ -91,7 +91,7 @@ Resource.create!( name: "Learn CSS Layout",
                   global_resource: true)
 
 Resource.create!( name: "Events",
-                  url: "https://www.eventbrite.com/",
+                  url: "https://www.google.com/calendar/embed?src=devbootcamp.com_3t7sqtcfo3uol2gj0o60r36r7g%40group.calendar.google.com&ctz=America/Chicago",
                   description: "Search for Dev Bootcamp events in Chicago",
                   global_resource: true)
 

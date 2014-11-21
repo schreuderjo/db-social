@@ -1,0 +1,22 @@
+<%= form_for :resource, url: "/resources/#{@resource.id}", method: "put" do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+
+<% end %>
+
