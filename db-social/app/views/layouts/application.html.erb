@@ -9,6 +9,7 @@
 <% if current_user %>
 current user id: <%=session[:current_user_id]%>
   <%= link_to "Logout", "/", method: :delete%>
+  <%= link_to "DBC Resources", resources_path %>
 <%end%>
 <body>
 
