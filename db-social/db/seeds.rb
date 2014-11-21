@@ -32,7 +32,7 @@ end
   Resource.create!(   name: Faker::Lorem.words(2).join(" "),
                       url: Faker::Internet.url,
                       description: Faker::Lorem.sentence(5),
-                      global_resource: ([true, false, false].sample)  )
+                      global_resource: false )
 end
 
 20.times do
@@ -45,7 +45,55 @@ end
                     post_id: (1..30).to_a.sample  )
 end
 
+Resource.create!( name: "Pairing is Caring",
+                  url: "http://mentoring.devbootcamp.com",
+                  description: "Sign up for a DBC Mentor to pair with, or Offer to Mentor DBC students.",
+                  global_resource: true)
 
+Resource.create!( name: "Counseling at Dev Bootcamp",
+                  url: "http://counseling-devbootcamp.herokuapp.com",
+                  description: "Meet with a counselor on premises.",
+                  global_resource: true)
+
+Resource.create!( name: "DBC Talks",
+                  url: "http://talks.devbootcamp.com",
+                  description: "View past lectures given at DBC.",
+                  global_resource: true)
+
+Resource.create!( name: "SQL Designer",
+                  url: "http://socrates.devbootcamp.com/sql",
+                  description: "Design tool for database schemas",
+                  global_resource: true)
+
+Resource.create!( name: "Educational Counseling at Dev Bootcamp",
+                  url: "https://docs.google.com/spreadsheets/d/1ttA3-4nkxeWIECzQST3nH6cT2OytHFkJrCuT4DwLNdU/edit#gid=0",
+                  description: "Google Docs: Sign up to meet with an educational counselor on premises",
+                  global_resource: true)
+
+Resource.create!( name: "SQL Designer",
+                  url: "http://socrates.devbootcamp.com/sql",
+                  description: "Design tool for database schemas",
+                  global_resource: true)
+
+Resource.create!( name: "DBCx",
+                  url: "http://meetup.com/Chicago-DevBootcamp-Speaker-Series",
+                  description: "DevBootcamp brings a speaker from the development community in once a week to talk about tech topics.",
+                  global_resource: true)
+
+Resource.create!( name: "Ruby Docs",
+                  url: "http://ruby-doc.org/core-2.0.0/",
+                  description: "Ruby Core 2.0.0 documentation",
+                  global_resource: true)
+
+Resource.create!( name: "Learn CSS Layout",
+                  url: "http://learnlayout.com/",
+                  description: "This site teaches the CSS fundamentals that are used in any website's layout.",
+                  global_resource: true)
+
+Resource.create!( name: "Events",
+                  url: "https://www.eventbrite.com/",
+                  description: "Search for Dev Bootcamp events in Chicago",
+                  global_resource: true)
 
 
 
