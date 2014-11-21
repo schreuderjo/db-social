@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.post {
+    background-color: lightgrey;
+    width: 500px;
+}
+
+.poster-info {
+    height: 40px;
+    width: 40px;
+}
