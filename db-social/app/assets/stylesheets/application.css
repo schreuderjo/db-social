@@ -10,16 +10,204 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
-.post {
-    background-color: lightgrey;
-    width: 500px;
+
+
+
+
+
+
+
+body {
+  font-family: Sans-serif;
+  background-color: #eeeeee;
+}
+ 
+ .recruit {
+   position: absolute;
+   top: 5px;
+   right: 20px;
+ }
+
+.post-container {
+    background-color: white;
+    width: 80%;
+    padding: 5%;
+    margin: 0 5% 5% 5%;
+    border-radius: 15px;
+    box-shadow: 2px 3px 10px darkgrey;
 }
 
 .poster-info {
     height: 40px;
     width: 40px;
+}
+
+.user-avatar {
+  background: darkgrey;
+  width: 100px;
+  height: 100px;
+}
+
+header {
+  z-index: 900;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  color: orange;
+  height: 60px;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.logo a {
+  color: orange;
+  text-decoration: none;
+}
+
+header form {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+header form button {
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.submit {
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+header form input {
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.container {
+    margin: 90px auto 0 auto;
+    width: 90%;
+    padding: 5px 20px 30px 20px;
+    /*background-color: lightgrey;*/
+    position: relative;
+}
+
+.login-form {
+/*   display: inline-block; */
+  width: 800px;
+  padding: 40px;
+/*   background-color: lightgrey; */
+  margin: 0 auto;
+  box-shadow: 5px 4px 30px darkgrey;
+}
+
+.boot-profile {
+  background-color: lightgrey;
+  border-radius: 25px;
+  min-height: 500px;
+  padding: 5% 5% 10% 5%;
+  position: fixed;
+  left: 5%;
+  width: 30%;
+  box-shadow: 2px 3px 10px darkgrey;
+  
+}
+
+.all-posts {
+  display: block;
+  width: 50%;
+  margin-left: 50%;
+}
+  
+th {
+    text-align: left;
+}
+
+form input[type="submit"] {
+  background-color: orange;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+form input[type="text"] {
+  margin: 15px 0;
+  background-color: #f7f7f7;
+  border: none;
+  height: 30px;
+  padding: 5px 15px;
+  width: 500px;
+}
+
+form input[type="password"] {
+  margin: 15px 0;
+  background-color: #f7f7f7;
+  border: none;
+  height: 30px;
+  padding: 5px 15px;
+  width: 500px;
+}
+
+.hidden {
+  display: none;
+}
+
+#dynamic-add {
+  display: none;
+}
+
+.header-links {
+/*   background-color: red; */
+  display: inline-block;
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  color: darkgrey;
+  
+}
+
+.header-links ul li {
+  display: inline-block;
+  list-style-type: none;
+  padding-right: 40px;
+  padding-left: 40px;
+/*   border-left: 1px solid black; */
+/*   border-shadow: 1px 1px 1px white; */
+  padding-top: 15px;
+  height: 35px;
+/*   position: absolute;
+  top: 0; */
+}
+
+.header-links a {
+  color: lightgrey;
+  text-decoration: none;
+}
+
+.header-links a:hover {
+  color: darkgrey;
+  text-decoration: underline;
 }
