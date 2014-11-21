@@ -31,9 +31,8 @@
 
         <% if current_user %>
           <li><%= link_to "DBC Resources", resources_path %></li>
-          <li>current user id: <%=session[:current_user_id]%></li>
-          <li><%= link_to "Logout", "session/:id", method: :delete %></li>
           <li><%= link_to "Current user profile", user_path(current_user) %></li>
+          <li><%= link_to "Logout", "sessions/:id", method: :delete %></li>       
         <%end%>
 
       </ul>

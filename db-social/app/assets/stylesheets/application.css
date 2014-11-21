@@ -24,6 +24,7 @@
 body {
   font-family: Sans-serif;
   background-color: #eeeeee;
+  font-size: 16px;
 }
  
  .recruit {
@@ -34,23 +35,57 @@ body {
 
 .post-container {
     background-color: white;
-    width: 80%;
-    padding: 5%;
+    width: 86%;
+    padding: 2% 2% 1% 2%;
     margin: 0 5% 5% 5%;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 2px 3px 10px darkgrey;
 }
 
 .poster-info {
-    height: 40px;
-    width: 40px;
+  padding-top: 0;
+  margin: 0;
+  font-size: 14px;
+  color: darkgrey;
+}
+
+.post-container-inner {
+/*   background-color: red; */
+  margin-left: 3%;
+  float: right;
+  width: 88%;
+}
+
+.post-container img {
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+
+.nice-action {
+  clear: both;
+  width: 100%;
+  position: relative;
+  top: 8px;
+}
+
+.user-name {
+  font-size: 20px;
 }
 
 .user-avatar {
   background: darkgrey;
   width: 100px;
   height: 100px;
+  position: relative;
+  top: 2px;
+  margin-right: 10px;
 }
+
+.temp-user-id {
+  display: none;
+}
+
 
 header {
   z-index: 900;
@@ -61,6 +96,7 @@ header {
   width: 100%;
   color: orange;
   height: 60px;
+  box-shadow: -1px 2px 5px black;
 }
 
 .logo {
@@ -90,12 +126,17 @@ header form button {
   margin-left: 10px;
 }
 
+.user-avatar {
+  float: left;
+}
+
 .submit {
   background-color: orange;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
   margin-left: 10px;
+  font-size: 14px;
 }
 
 header form input {
@@ -104,6 +145,7 @@ header form input {
   border-radius: 5px;
   padding: 5px 10px;
   margin-left: 10px;
+  font-size: 14px;
 }
 
 .container {
@@ -127,12 +169,11 @@ header form input {
   background-color: lightgrey;
   border-radius: 25px;
   min-height: 500px;
-  padding: 5% 5% 10% 5%;
+  padding: 2% 5% 10% 5%;
   position: fixed;
   left: 5%;
   width: 30%;
   box-shadow: 2px 3px 10px darkgrey;
-  
 }
 
 .all-posts {
@@ -145,12 +186,17 @@ th {
     text-align: left;
 }
 
+.login-form form p {
+/*  background-color: red; */
+}
+
 form input[type="submit"] {
   background-color: orange;
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
   margin-left: 10px;
+  font-size: 14px;
 }
 
 form input[type="text"] {
@@ -160,6 +206,7 @@ form input[type="text"] {
   height: 30px;
   padding: 5px 15px;
   width: 500px;
+  font-size: 14px;
 }
 
 form input[type="password"] {
@@ -169,6 +216,7 @@ form input[type="password"] {
   height: 30px;
   padding: 5px 15px;
   width: 500px;
+  font-size: 14px;
 }
 
 .hidden {
@@ -210,4 +258,35 @@ form input[type="password"] {
 .header-links a:hover {
   color: darkgrey;
   text-decoration: underline;
+}
+
+.post-container-inner p {
+  font-size: 14px;
+}
+
+
+.nice-action p, .nice-action a {
+/*    background-color: red; */
+   display: inline-block; 
+   font-size: 12px;
+}
+
+.nice-action a {
+  color: darkred;
+  text-decoration: none;
+}
+
+.nice-action a:hover {
+  color: orange;
+}
+
+.nice-count {
+  color: darkgrey;
+}
+
+.updated-at {
+  position: relative;
+  top: 5px;
+  color: lightgrey;
+  float: right;
 }
