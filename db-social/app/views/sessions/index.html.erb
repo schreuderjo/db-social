@@ -1,24 +1,10 @@
-test_email: <strong><%=User.first.email%></strong><br>
-test_password: <strong>password</strong><br>
-<h3><%=flash[:notice]%></h3>
-<h1>Welcome to db:social</h1>
-<%= form_for :user  do |f| %>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
+<% if current_user %>
 
-  <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </p>
+<%= render "home_page", layout: false %>
 
-  <p>
-    <%= f.submit "Login" %>
-  </p>
+<% else %>
+
+  <h1>Welcome to db:social</h1>
+  <%= render "login_form", layout: false %>
+
 <% end %>
-
-<%= link_to new_user_path do %>
-<button>Sign Up</button>
-<% end %>
-

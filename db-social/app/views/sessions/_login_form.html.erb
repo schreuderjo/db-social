@@ -1,0 +1,25 @@
+<%= form_for :user  do |f| %>
+
+  <% flash.each do |key, value| %>
+    <p><%= value %></p>
+  <% end %>
+
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.submit "Login" %>
+  </p>
+
+<% end %>
+
+<%= link_to new_user_path do %>
+  <button>Sign Up</button>
+<% end %>
