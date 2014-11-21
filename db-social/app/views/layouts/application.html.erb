@@ -6,6 +6,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<% if current_user %>
+current user id: <%=session[:current_user_id]%>
+  <%= link_to "Logout", "/", method: :delete%>
+<%end%>
 <body>
 
 <%= yield %>

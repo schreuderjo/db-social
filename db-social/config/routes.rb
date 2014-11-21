@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   post '/' => 'sessions#create'
   delete '/' => 'sessions#destroy'
 
-    resources :users
-    resources :posts
 
-    root 'sessions#index'
+  resources :users
+  resources :posts
+  resources :resources
+
+  root 'sessions#index'
 
     # resources :sessions
 

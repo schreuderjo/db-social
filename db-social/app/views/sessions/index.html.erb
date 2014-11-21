@@ -1,6 +1,5 @@
-current user id: <%=session[:current_user_id]%><br>
 test_email: <strong><%=User.first.email%></strong><br>
-test_password: <strong>aaaaaa</strong><br>
+test_password: <strong>password</strong><br>
 <h3><%=flash[:notice]%></h3>
 <h1>Welcome to db:social</h1>
 <%= form_for :user  do |f| %>
