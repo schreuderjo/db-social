@@ -1,25 +1,29 @@
-<%= form_for :user, url: sessions_path do |f| %>
+<div class="login-form">
 
-  <% flash.each do |key, value| %>
-    <p><%= value %></p>
+    <%= form_for :user, url: sessions_path do |f| %>
+
+    <% flash.each do |key, value| %>
+      <p><%= value %></p>
+    <% end %>
+
+    <p>
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </p>
+
+    <p>
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </p>
+
+    <p>
+      <%= f.submit "Login" %>
+    </p>
+
   <% end %>
 
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
+  <%= link_to new_user_path do %>
+    <button class="submit">Sign Up</button>
+  <% end %>
 
-  <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </p>
-
-  <p>
-    <%= f.submit "Login" %>
-  </p>
-
-<% end %>
-
-<%= link_to new_user_path do %>
-  <button>Sign Up</button>
-<% end %>
+</div>

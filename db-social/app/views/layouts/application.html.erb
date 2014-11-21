@@ -6,14 +6,45 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<% if current_user %>
-<h3>current user id: <%=session[:current_user_id]%></h3>
-  <%= link_to "DBC Resources", resources_path %>
-  <%= link_to "Logout", "/sessions/:id", method: :delete%>
-<%end%>
+
 <body>
 
-<%= yield %>
+  <header>
+
+    <div class="logo">
+      <%= link_to "/" do %>
+        db:<span>social</span>
+      <% end %>              
+    </div>
+    <!-- <div class="login"> -->
+
+    <div class="header-links">
+
+      <ul>
+
+        
+        <% if !current_user %>
+          <li class="recruit"><em>join the madness now</em></li>
+        <% end %>
+
+
+        <% if current_user %>
+          <li><%= link_to "DBC Resources", resources_path %></li>
+          <li>current user id: <%=session[:current_user_id]%></li>
+          <li><%= link_to "Logout", "session/:id", method: :delete %></li>
+        <%end%>
+
+      </ul>
+
+    </div>
+
+  </header>
+
+  <div class="container">
+
+    <%= yield %>
+
+  </div>
 
 </body>
 </html>
