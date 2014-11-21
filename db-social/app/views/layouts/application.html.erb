@@ -7,9 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <% if current_user %>
-current user id: <%=session[:current_user_id]%>
-  <%= link_to "Logout", "/", method: :delete%>
+<h3>current user id: <%=session[:current_user_id]%></h3>
   <%= link_to "DBC Resources", resources_path %>
+  <%= link_to "Logout", "/sessions/:id", method: :delete%>
 <%end%>
 <body>
 

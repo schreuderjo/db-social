@@ -1,0 +1,10 @@
+<div class="post-container">
+  <h3><img class="poster-info" src=<%= post.user.avatar %>><%= post.user.first_name %> <%= post.user.last_name %></h3>
+  <p><%= post.text %></p>
+  <div>
+    <%= link_to "Nice", url: "#", class:"" %>
+    <%= link_to "Comment", url: "#", class:"" %>
+  </div>
+  <%= "+#{post.nices.count}" %>
+  <p class="updated-at" ><%= post.updated_at %></p>
+</div>

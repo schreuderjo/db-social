@@ -1,8 +1,13 @@
-<<<<<<< HEAD
-<h1><%="#{current_user.first_name} #{current_user.last_name}'s" %> Home page!!</h1> <br>
-<img src= <%="#{current_user.avatar}"%>>
-=======
 
->>>>>>> added rspec and basic css
+  <h1><%="#{current_user.first_name} #{current_user.last_name}'s" %> Home page!!</h1> <br>
+  <img src= <%="#{current_user.avatar}"%>>
 
-<%= link_to "My Profile", user_path(current_user) %>
+  current user id: <%=session[:current_user_id]%><br>
+  test_email: <strong><%=User.first.email%></strong><br>
+
+
+<%= render partial: "posts/new_post", layout: false %>
+
+<% @posts.each do |post| %>
+  <%= render partial: "posts/show_post", layout: false, locals: {post: post} %>
+<% end %>
