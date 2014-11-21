@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  get '/' => 'sessions#index'
-  post '/' => 'sessions#create'
-  delete '/' => 'sessions#destroy'
+  # get '/' => 'sessions#index'
+  # post '/' => 'sessions#create'
+  # delete '/' => 'sessions#destroy'
+  # post "/signin", to: "sessions#create", as: "signin"
 
-
+  resources :sessions
   resources :users
   resources :posts
   resources :resources
 
-  root 'sessions#index'
+  root 'posts#index'
 
     # resources :sessions
 
