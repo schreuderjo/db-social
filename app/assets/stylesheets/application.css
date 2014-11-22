@@ -20,11 +20,24 @@
 
 
 
-
 body {
   font-family: Sans-serif;
   background-color: #eeeeee;
   font-size: 16px;
+}
+
+a {
+  color: darkred;
+  text-decoration: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+ul li {
+  list-style-type: none;
+  margin-left: 0;
 }
  
  .recruit {
@@ -80,6 +93,9 @@ body {
   position: relative;
   top: 2px;
   margin-right: 10px;
+  margin-bottom: 40px;
+  float: left;
+  
 }
 
 .temp-user-id {
@@ -126,10 +142,6 @@ header form button {
   margin-left: 10px;
 }
 
-.user-avatar {
-  float: left;
-}
-
 .submit {
   background-color: orange;
   border: none;
@@ -137,6 +149,7 @@ header form button {
   padding: 5px 10px;
   margin-left: 10px;
   font-size: 14px;
+  color: black;
 }
 
 header form input {
@@ -289,4 +302,77 @@ form input[type="password"] {
   top: 5px;
   color: lightgrey;
   float: right;
+}
+
+.edit-profile-link {
+  margin: 0;
+  padding: 0;
+}
+
+.edit-profile-link a {
+  color: darkred;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.email, .quirk, .tweet-size-advice {
+  font-size: 13px;
+}
+
+.email span, .quirk span, .tweet-size-advice span {
+  color: darkgrey;
+}
+
+/* .quirk span {
+  position: relative;
+  top: -22px;
+  color: black;
+} */
+
+.quirk-label {
+  clear: both;
+  margin: 0;
+  padding: 0 0 5px 0;
+  font-size: 13px;
+}
+
+.quirk-label span {
+  color: darkgrey;
+  font-size: 11px;
+}
+
+.quirk, .tweet-size-advice {
+  clear: both;
+/*   margin-top: 20px; */
+  margin: 0 0 20px 0;
+  min-height: 50px;
+  width: 100%;
+  padding: 5px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+
+}
+
+.quirk, .tweet-size-advice {
+  clear: both;
+/*   margin-top: 20px; */
+  margin: 0 0 20px 0;
+  min-height: 50px;
+  width: 100%;
+  padding: 5px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  
+}
+
+.tweet-size-advice-label {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+.tweet-size-advice-label {
+  clear: both;
+  margin: 0;
+  padding: 0;
 }
