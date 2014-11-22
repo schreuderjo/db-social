@@ -24,5 +24,10 @@ $(document).ready(function(){
       $(".post-form").toggleClass("hidden");
     });
   });
+
+  $(".all-posts").on("click", ".delete-post", function(e){
+    e.preventDefault();
+    console.log("foo");
+  });
 });
 

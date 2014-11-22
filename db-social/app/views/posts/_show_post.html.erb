@@ -5,9 +5,9 @@
     <%= link_to "Nice", url: "#", class:"" %>
     <%= link_to "Comment", url: "#", class:"" %>
   </div>
-  <%= "+#{post.nices.count}" %>
+  <%= "#{post.nices.count}" %>
   <p class="updated-at" ><%= post.updated_at %></p>
   <% if current_user.id == post.user.id %>
-    <%= link_to "Delete", url: "/post/:id", method: :delete, class:"" %>
+    <li><%= link_to "Delete", "posts/#{ post.id }", method: :delete %></li>
   <% end %>
 </div>

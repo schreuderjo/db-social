@@ -15,17 +15,18 @@ class PostsController < ApplicationController
     params[:post][:user_id] = current_user.id
     @post = Post.new(post_params)
     respond_to do |format|
-    if @post.save
-      format.json {
-        render json: {html: render_to_string(:partial => "show_post.html.erb", :locals => {:post => @post} )}
-      }
+      if @post.save
+        format.json {
+          render json: {html: render_to_string(:partial => "show_post.html.erb", :locals => {:post => @post} )}
+        }
+      end
     end
   end
 
   def destroy
-    binding.pry
-  end
-
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to root_path
   end
 
   private
