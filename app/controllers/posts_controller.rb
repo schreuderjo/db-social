@@ -8,12 +8,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @post = Post.find(params[:id])
     respond_to do |format|
-      format.json {
-        render json: {html: render_to_string(:partial => "edit_post.html.erb", :locals => {:post => @post} )}
-      }
+        format.json {
+          render json: {html: render_to_string(:partial => "post_form.html.erb", :locals => {:post => @post} )}
+        }
     end
   end
 
@@ -36,7 +35,16 @@ class PostsController < ApplicationController
   end
 
   def update
-    binding.pry
+    params[:post][:user_id] = current_user.id
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    respond_to do |format|
+      if @post.save
+        format.json {
+          render json: {html: render_to_string(:partial => "show_post.html.erb", :locals => {:post => @post} )}
+        }
+      end
+    end
   end
 
   private

@@ -26,32 +26,51 @@ $(document).ready(function(){
     });
   });
 
-  //edit post request
-  $(".all-posts").on("click", ".edit-post", function(e){
+  //edit post form drop down
+  $(".all-posts").on("click", ".edit-post-form", function(e){
     e.preventDefault();
-    console.log("foo");
-    $(".post-text").toggleClass("hidden");
-    // debugger
-    $(".post-text").replaceWith("<%= render partial: 'posts/edit_post', layout: false, locals: {post: Post.new} %>");
 
+    var href = $(this).attr("href");
+    var postId = href.match(/\d+/)[0];
 
-    // var res = $(this).attr("href").match(/\d+/);
-    // debugger;
+    var request = $.ajax({
+      url: '/posts/' + postId,
+      type: 'get'
+    });
 
-    // var request = $.ajax({
-    //   url: '/posts/:id',
-    //   type: 'get',
-    //   data: $(this).attr("href"),
-    //   dataType: "json"
-    // });
+    request.done(function(response){
+      $("*[data-post-id=" + postId +"]").replaceWith(response.html);
+    });
 
-    // request.done(function(response){
-    //   console.log(response);
-    // });
+    request.fail(function(response){
+      console.log(response);
+    });
+  });
+  //   var href = $(this).attr("href");
+  //   var postId = href.match(/\d+/)[0];
+  //   var selectedText = $("*[data-post-id="+ postId +"]");
+  //   selectedText.toggleClass("hidden");
+  //   $("*[data_attr=" + postId +"]").toggleClass("hidden");
 
-    // request.fail(function(response){
-    //   console.log(response);
-    // });
+  $(".all-posts").submit(function(e){
+    e.preventDefault();
+
+    var postId = $(".edit-post").attr("data_attr")
+
+    var request = $.ajax({
+      url: "/posts/" + postId,
+      type: 'put',
+      data: $(".edit-post").serialize(),
+      dataType: "json"
+    });
+
+    request.done(function(response){
+      $(".edit-post").replaceWith(response.html);
+    });
+
+    request.fail(function(response){
+      console.log(response);
+    });
   });
 
 

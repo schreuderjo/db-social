@@ -1,15 +1,5 @@
-<%= form_for :post, url: posts_path, html: {class: "edit-post"}, remote: true    do |f| %>
-
-  <% flash.each do |key, value| %>
-    <p><%= value %></p>
+<%= render partial: "posts/post_form", layout: false, locals: {post: post} %>
+<% if current_user.id == post.user.id %>
+    <%= link_to "Delete", posts_path, class: "delete-post", remote: true %>
+    <%= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
   <% end %>
-
-  <p>
-    <%= f.label "New Post" %><br>
-    <%= f.text_area :text, :placeholder => post.text %>
-  </p>
-
-  <p>
-    <%= f.submit "Post"%>
-  </p>
-<% end %>

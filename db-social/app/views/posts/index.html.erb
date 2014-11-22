@@ -20,8 +20,7 @@
   </div>
 
   <% @posts.each do |post| %>
-    <%= render partial: "posts/show_post", layout: false, locals: {post: post} %>
-    <%= render partial: 'posts/edit_post', layout: false, locals: {post: post} %>
+    <%= render partial: "posts/post_container", layout: false, locals: {post: post} %>
   <% end %>
 </div>
 

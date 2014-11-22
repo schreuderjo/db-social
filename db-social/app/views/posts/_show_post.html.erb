@@ -1,14 +1,6 @@
-<div class="post-container">
-  <h3><img class="poster-info" src=<%= post.user.avatar %>><%= post.user.first_name %> <%= post.user.last_name %></h3>
-  <p class="post-text"><%= post.text %></p>
-  <% if current_user.id == post.user.id %>
+<p class="post-text" data-post-id=<%= post.id%>><%= post.text %></p>
+<% if current_user.id == post.user.id %>
     <%= link_to "Delete", posts_path, class: "delete-post", remote: true %>
-    <%= link_to "Edit", posts_path(post), class: "edit-post", remote: true %>
+    <%= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
   <% end %>
-  <div>
-    <%= link_to "Nice", url: "#", class:"" %>
-    <%= link_to "Comment", url: "#", class:"" %>
-  </div>
-  <%= "#{post.nices.count}" %>
-  <p class="updated-at" ><%= post.updated_at %></p>
-</div>
+
