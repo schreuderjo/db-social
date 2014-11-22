@@ -1,6 +1,14 @@
 <div class="post-container">
   <h3><img class="poster-info" src=<%= post.user.avatar %>><%= post.user.first_name %> <%= post.user.last_name %></h3>
-  <%= render partial: "posts/show_post", layout: false, locals: {post: post} %>
+  <div class="post-text" data-post-id=<%= post.id%>>
+
+<p><%= post.text %></p>
+
+<% if current_user.id == post.user.id %>
+    <%= link_to "Delete", posts_path, class: "delete-post", remote: true %>
+    <%= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
+  <% end %>
+</div>
   <div>
     <%= link_to "Nice", url: "#", class:"" %>
     <%= link_to "Comment", url: "#", class:"" %>
