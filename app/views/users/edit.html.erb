@@ -1,7 +1,7 @@
   <h2>Update Details</h2>
    <%= link_to "Change Password", "/users/#{@user.id}/password" %>
   <hr>
-<%= form_for :user, url: "/users/#{@user.id}", method: "put" do |f| %>
+<%= form_for :user, url: user_path, method: "put" do |f| %>
   <p>
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
