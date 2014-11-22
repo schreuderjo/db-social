@@ -32,7 +32,7 @@ $(document).ready(function(){
     console.log("foo");
     $(".post-text").toggleClass("hidden");
     // debugger
-    $(".post-text").replaceWith(<%= render partial: 'posts/edit_post', layout: false, locals: {post: Post.new} %>);
+    $(".post-text").replaceWith("<%= render partial: 'posts/edit_post', layout: false, locals: {post: Post.new} %>");
 
 
     // var res = $(this).attr("href").match(/\d+/);
