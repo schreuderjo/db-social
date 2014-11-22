@@ -1,12 +1,11 @@
 <div class="boot-profile">
-  <%= link_to "Logout", "/sessions/:id", method: :delete %>
-  <h1><%="#{current_user.first_name} #{current_user.last_name}'s" %> Home page!!</h1> <br>
-  <img class="user-avatar" src=<%="#{current_user.avatar}"%>>
-
-  current user id: <%=session[:current_user_id]%><br>
-  test_email: <strong><%=User.first.email%></strong><br>
+  <!-- <h1 class="user-name"><img class="user-avatar" src=<%#="#{current_user.avatar}"%>><%#="#{current_user.first_name} #{current_user.last_name}" %></h1> -->
+  <h1 class="user-name"><%= link_to image_tag(current_user.avatar, class: "user-avatar"), "/users/#{current_user.id}/" %><%=link_to"#{current_user.first_name} #{current_user.last_name}", "/users/#{current_user.id}/" %></h1>
+  <div class="temp-user-id">
+    <p>current user id: <%=session[:current_user_id]%></p>
+    <p>test_email: <strong><%=current_user.email%></strong></p>
+  </div>
 </div>
-
 
 
 <div class="all-posts">

@@ -13,3 +13,27 @@
   <%= link_to "Edit", edit_user_path(current_user) %>
 <% end %>
 
+####################################################################################
+
+<div class="boot-profile">
+  <h1 class="user-name"><img class="user-avatar" src=<%=@user.avatar %>><%= @user.first_name %> <%= @user.last_name %></h1>
+
+  <% if @user == current_user %>
+    <p class="edit-profile-link"><%= link_to "Edit profile", edit_user_path(current_user) %></p>
+  <% end %>
+
+  <p class="email"><span>Email: </span><%= @user.email %></p>
+  <p class="quirk-label">Quirk</p>
+  <p class="quirk"><%= @user.quirk %></p>
+  <p class="quirk-label">TSPOA <span><em>Tweet Size Piece of Advice</em></span></p>
+  <p class="tweet-size-advice"><%= @user.tweet_size_advice %></p>
+  <h4>Favorite Resources:</h4>
+  <ul>
+    <% @user.resources.each do |resource| %>
+      <li><%= link_to resource.name, resource.url %></li>
+    <% end %>
+  </ul>
+  <% if current_user == @user %>
+    <%= link_to "Manage Favorite Resources", user_favorites_path(current_user), class: "submit" %>
+  <% end %>
+</div>
