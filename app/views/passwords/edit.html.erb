@@ -1,0 +1,17 @@
+<h2>Change Password</h2>
+<hr>
+<%= form_for :user, url: "/users/#{@user.id}/password", method: "put" do |f| %>
+<p>
+  <%= f.label :current_password %><br>
+  <%= f.password_field :current_password %>
+</p>
+
+<p>
+  <%= f.label :new_password %><br>
+  <%= f.password_field :password %>
+</p>
+
+<p>
+  <%= f.submit "Submit" %>
+</p>
+<%end%>

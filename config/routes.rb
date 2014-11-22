@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # post '/' => 'sessions#create'
   # delete '/' => 'sessions#destroy'
   # post "/signin", to: "sessions#create", as: "signin"
+  get "/users/:id/password" => 'password#edit'
+  put "/users/:id/password" => 'password#update'
 
   resources :sessions
   resources :users do
@@ -12,9 +14,6 @@ Rails.application.routes.draw do
   resources :resources
 
   root 'posts#index'
-
-    # resources :sessions
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

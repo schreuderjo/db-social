@@ -16,7 +16,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # redirect_to "/#{@user.to_param}" #attempt at changing route to first_name instead of id
   end
 
   def edit
@@ -24,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    params[:user].delete(:password) if params[:user][:password].blank?
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
