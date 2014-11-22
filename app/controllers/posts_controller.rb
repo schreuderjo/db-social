@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     respond_to do |format|
         format.json {
-          render json: {html: render_to_string(:partial => "post_form.html.erb", :locals => {:post => @post} )}
+          render json: {html: render_to_string(:partial => "edit_post.html.erb", :locals => {:post => @post} )}
         }
     end
   end
