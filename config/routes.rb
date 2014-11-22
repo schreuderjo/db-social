@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # post '/' => 'sessions#create'
   # delete '/' => 'sessions#destroy'
   # post "/signin", to: "sessions#create", as: "signin"
-  get "/users/:id/password" => 'password#edit'
-  put "/users/:id/password" => 'password#update'
+  get "/users/:id/passwords" => 'passwords#edit'
+  put "/users/:id/passwords" => 'passwords#update'
 
   resources :sessions
   resources :users do

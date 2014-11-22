@@ -1,4 +1,4 @@
-class PasswordController < ApplicationController
+class PasswordsController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
