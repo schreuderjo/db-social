@@ -7,9 +7,13 @@ class PasswordController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.authenticate(params[:user][:current_password])
-      if @user.update(user_params)
-        redirect_to @user
+    if params[:user][:password] != ""
+      if @user.authenticate(params[:user][:current_password])
+        if @user.update(user_params)
+          redirect_to @user
+        else
+          render 'passwords/edit'
+        end
       else
         render 'passwords/edit'
       end
