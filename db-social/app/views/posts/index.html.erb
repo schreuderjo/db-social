@@ -21,6 +21,7 @@
 
   <% @posts.each do |post| %>
     <%= render partial: "posts/show_post", layout: false, locals: {post: post} %>
+    <%= render partial: 'posts/edit_post', layout: false, locals: {post: post} %>
   <% end %>
 </div>
 

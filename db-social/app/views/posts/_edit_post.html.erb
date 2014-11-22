@@ -1,0 +1,15 @@
+<%= form_for :post, url: posts_path, html: {class: "edit-post"}, remote: true    do |f| %>
+
+  <% flash.each do |key, value| %>
+    <p><%= value %></p>
+  <% end %>
+
+  <p>
+    <%= f.label "New Post" %><br>
+    <%= f.text_area :text, :placeholder => post.text %>
+  </p>
+
+  <p>
+    <%= f.submit "Post"%>
+  </p>
+<% end %>

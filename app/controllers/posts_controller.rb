@@ -8,7 +8,13 @@ class PostsController < ApplicationController
   end
 
   def show
+    # binding.pry
     @post = Post.find(params[:id])
+    respond_to do |format|
+      format.json {
+        render json: {html: render_to_string(:partial => "edit_post.html.erb", :locals => {:post => @post} )}
+      }
+    end
   end
 
   def create
@@ -27,6 +33,10 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     redirect_to root_path
+  end
+
+  def update
+    binding.pry
   end
 
   private

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  //New post request
   $(".all-posts").on("click", "#new-post-button", function(e) {
     e.preventDefault();
     $(".post-form").toggleClass("hidden");
@@ -25,9 +26,38 @@ $(document).ready(function(){
     });
   });
 
-  $(".all-posts").on("click", ".delete-post", function(e){
+  //edit post request
+  $(".all-posts").on("click", ".edit-post", function(e){
     e.preventDefault();
     console.log("foo");
+    $(".post-text").toggleClass("hidden");
+    // debugger
+    $(".post-text").replaceWith(<%= render partial: 'posts/edit_post', layout: false, locals: {post: Post.new} %>);
+
+
+    // var res = $(this).attr("href").match(/\d+/);
+    // debugger;
+
+    // var request = $.ajax({
+    //   url: '/posts/:id',
+    //   type: 'get',
+    //   data: $(this).attr("href"),
+    //   dataType: "json"
+    // });
+
+    // request.done(function(response){
+    //   console.log(response);
+    // });
+
+    // request.fail(function(response){
+    //   console.log(response);
+    // });
+  });
+
+
+  $(".all-posts").on("click", ".delete-post", function(e){
+    e.preventDefault();
+    console.log("bar");
   });
 });
 

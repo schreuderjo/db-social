@@ -381,4 +381,7 @@ form input[type="password"] {
 .post-form {
   display: block;
 }
+.post-text {
+  display: block;
+}
 
