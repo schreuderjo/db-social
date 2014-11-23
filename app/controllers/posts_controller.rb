@@ -41,7 +41,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.json {
-          render json: {html: render_to_string(:partial => "show_post.html.erb", :locals => {:post => @post} )}
+          render json: {html: render_to_string(:partial => "post_partial.html.erb", :locals => {:post => @post} )}
         }
       end
     end

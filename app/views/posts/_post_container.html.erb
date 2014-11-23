@@ -1,18 +1,46 @@
-<div class="post-container">
+<!-- <div class="post-container">
   <h3><img class="poster-info" src=<%= post.user.avatar %>><%= post.user.first_name %> <%= post.user.last_name %></h3>
   <div class="post-text" data-post-id=<%= post.id%>>
 
 <p><%= post.text %></p>
 
-<% if current_user.id == post.user.id %>
+<% #if current_user.id == post.user.id %>
+    <%#= link_to "Delete", posts_path, class: "delete-post", remote: true %>
+    <%#= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
+  <% #end %>
+</div>
+  <div>
+    <%#= link_to "Nice", url: "#", class:"" %>
+    <%#= link_to "Comment", url: "#", class:"" %>
+  </div>
+  <%#= "#{post.nices.count}" %>
+  <p class="updated-at" ><%= post.updated_at %></p>
+</div>
+ -->
+
+<div class="post-container" data-post-id=<%= post.id%>>
+
+  <%= link_to image_tag(post.user.avatar), "/users/#{post.user_id}/" %>
+
+  <div class="post-container-inner">
+
+    <h3 class="poster-info"><%= link_to "#{post.user.first_name} #{post.user.last_name}", "/users/#{post.user_id}/"%></h3>
+
+    <div class="post-text" data-post-id=<%= post.id%>>
+      <p><%= post.text %></p>
+    </div>
+  </div>
+
+    <div class="nice-action">
+      <p class="nice-count"><%= "+#{post.nices.count}" %></p>
+      <%= link_to "Nice", url: "#", class: "nice-link" %>
+      <%= link_to "Comment", url: "#", class: "comment-link" %>
+      <p class="updated-at" ><%= post.updated_at %></p>
+    </div>
+
+
+  <% if current_user.id == post.user.id %>
     <%= link_to "Delete", posts_path, class: "delete-post", remote: true %>
     <%= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
   <% end %>
-</div>
-  <div>
-    <%= link_to "Nice", url: "#", class:"" %>
-    <%= link_to "Comment", url: "#", class:"" %>
-  </div>
-  <%= "#{post.nices.count}" %>
-  <p class="updated-at" ><%= post.updated_at %></p>
 </div>

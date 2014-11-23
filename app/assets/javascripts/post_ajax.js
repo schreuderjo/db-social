@@ -52,6 +52,8 @@ $(document).ready(function(){
   //   selectedText.toggleClass("hidden");
   //   $("*[data_attr=" + postId +"]").toggleClass("hidden");
 
+
+  //update edited post to post container
   $(".all-posts").submit(function(e){
     e.preventDefault();
 
