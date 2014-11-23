@@ -16,10 +16,18 @@
 
 
 
+
+
+
+
+
 .new-post-form-container {
 /*   position: absolute; */
-  float: right;
-  right: 0;
+/*   float: right; */
+  
+  position: relative;
+  left: 48%;
+  top: -18px
 }
 
 
@@ -51,12 +59,15 @@ ul li {
  }
 
 .post-container {
+  position: relative;
+  clear: both;
     background-color: white;
     width: 86%;
     padding: 2% 2% 1% 2%;
-    margin: 0 5% 5% 5%;
+    margin: 0 5% 3% 5%;
     border-radius: 5px;
     box-shadow: 2px 3px 10px darkgrey;
+  
 }
 
 .poster-info {
@@ -77,13 +88,6 @@ ul li {
   float: left;
   width: 40px;
   height: 40px;
-}
-
-.nice-action {
-  clear: both;
-  width: 100%;
-  position: relative;
-  top: 8px;
 }
 
 .user-name {
@@ -156,6 +160,8 @@ header form button {
   color: black;
 }
 
+
+
 header form input {
   background-color: orange;
   border: none;
@@ -211,10 +217,22 @@ th {
 form input[type="submit"] {
   background-color: orange;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 20px;
   border-radius: 5px;
   margin-left: 10px;
   font-size: 14px;
+}
+
+#new-post-button {
+  padding: 10px 50px;
+  margin-bottom: 10px;
+}
+
+textarea#post_text {
+  width: 49%;
+  height: 50px;
+  font-size: 14px;
+  border: none;
 }
 
 form input[type="text"] {
@@ -279,31 +297,50 @@ form input[type="password"] {
   font-size: 14px;
 }
 
+.nice-action {
+  clear: both;
+  width: 100%;
+  position: relative;
+  top: 8px;
+}
 
-.nice-action p, .nice-action a {
+.delete-edit-action {
+/*   clear: both; */
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: 5px;
+}
+
+
+.nice-action p, .nice-action a, .delete-edit-action a, .delete-edit-action p {
 /*    background-color: red; */
    display: inline-block;
    font-size: 12px;
 }
 
-.nice-action a {
+.nice-action a, .delete-edit-action a {
   color: darkred;
   text-decoration: none;
 }
 
-.nice-action a:hover {
+.nice-action a:hover, .delete-edit-action a:hover {
   color: orange;
 }
 
-.nice-count {
+.nice-count, {
   color: darkgrey;
 }
 
 .updated-at {
-  position: relative;
-  top: 5px;
+/*   display: inline; */
+  font-size: 12px;
+  position: absolute;
+  bottom: -10px;
+  right: -47px;
   color: lightgrey;
-  float: right;
+  width: 200px;
+/*   float: right; */
 }
 
 .edit-profile-link {
@@ -382,6 +419,7 @@ form input[type="password"] {
 .post-form {
   display: block;
 }
+
 .post-text {
   display: block;
 }
@@ -389,3 +427,4 @@ form input[type="password"] {
 .hidden {
   display: none;
 }
+

@@ -17,12 +17,15 @@
       <p class="nice-count"><%= "+#{post.nices.count}" %></p>
       <%= link_to "N" + ("i"*post.nices.count) + "ce", post_nices_path(post), class: "nice-link", remote: true %>
       <%= link_to "Comment", url: "#", class: "comment-link" %>
-      <p class="updated-at" ><%= post.updated_at %></p>
     </div>
 
+    <div class="delete-edit-action">
+      <% if current_user.id == post.user.id %>
+        <%= link_to "Delete", posts_path, data_attr: post.id, class: "delete-post", remote: true %>
+        <%= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
+      <% end %>
+    </div>
 
-  <% if current_user.id == post.user.id %>
-    <%= link_to "Delete", posts_path, data_attr: post.id, class: "delete-post", remote: true %>
-    <%= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
-  <% end %>
+    <p class="updated-at" ><%= post.updated_at %></p>
+
 </div>
