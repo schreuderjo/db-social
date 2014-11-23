@@ -1,0 +1,6 @@
+<div class="nice-action">
+  <p class="nice-count"><%= "+#{post.nices.count}" %></p>
+  <%= link_to "N" + ("i"*post.nices.count) + "ce", post_nices_path(post), class: "nice-link", remote: true %>
+  <%= link_to "Comment", url: "#", class: "comment-link" %>
+  <p class="updated-at" ><%= post.updated_at %></p>
+</div>
