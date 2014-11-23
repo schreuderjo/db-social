@@ -25,6 +25,7 @@ end
 
 60.times do
   Comment.create!(  post_id: (1..30).to_a.sample,
+                    user_id: (1..10).to_a.sample,
                     text: Faker::Lorem.sentence(8)  )
 end
 

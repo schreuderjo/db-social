@@ -1,43 +1,44 @@
 $(document).ready(function(){
+  //retrieve comment form
   $(".all-posts").on("click", ".comment-link", function(e){
     e.preventDefault();
 
-    // debugger;
     var request = $.ajax({
       url: $(this).attr("href"),
       type: "get"
     });
 
-    // $( ".inner" ).append( "<p>Test</p>" );
-
     request.done(function(response){
-      console.log(response);
-      $("*[data-post-container-id=" + response.postId +"]").append(response.html)
+      $("*[data-post-container-id=" + response.postId +"]").append(response.html);
     });
 
     request.fail(function(response){
       console.log(response);
-
-
     });
-
-    console.log('foo');
   });
 
+  //new comment submission
   $(".all-posts").on("submit", "#new-comment", function(e){
     e.preventDefault();
-    // console.log("suck it Nate");
-    // debugger;
 
     var postId = $(this).attr('data_attr');
     var url = '/posts/' + postId + '/comments';
-    debugger;
+    // debugger;
     var request = $.ajax({
       url: '/posts/' + postId + '/comments',
       type: 'post',
       data: $(this).serialize()
     });
 
+    request.done(function(response){
+      $("*[data-comment-container-id=" + postId +"]").append(response.html);
+      $("#new-comment").remove();
+      console.log(response);
+    });
+
+    request.fail(function(response){
+      console.log(response);
+    });
 
   });
 });
