@@ -30,6 +30,7 @@
 
 
         <% if current_user %>
+          <li class="feed-link"><%= link_to "Feed", "/" %></li>
           <li><%= link_to "DBC Resources", resources_path %></li>
           <li><%= link_to "My profile", user_path(current_user) %></li>
           <li><%= link_to "Logout", "/sessions/#{current_user.id}" , method: :delete %></li>

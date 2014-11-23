@@ -1,7 +1,11 @@
-<h1>DBC Resources</h1>
-<ul>
-<% @resources.each do |resource| %>
-  <li><%= link_to resource.name, resource.url %></li>
-  <li><%= resource.description%></li>
-<%end%>
-</ul>
+<div class="container">
+  <h1>DBC Resources</h1>
+  <div class="resources-container">
+    <ul>
+    <% @resources.each do |resource| %>
+      <li class="resource-link"><%= link_to resource.name, resource.url %></li>
+      <li class="resource-description"><%= resource.description%></li>
+    <%end%>
+    </ul>
+  </div>
+</div>
