@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
   validates :email, :first_name, :last_name, presence: true
-  validates_format_of :email, :with => /[\w|\.]+@\w+\.\w+/, :on => :create
-
+  validates_format_of :email, :with => /[\w|\.]+@\w+\.\w+/
   validates :password, :presence => true, :on => :update,
    :if => lambda{ !password.nil? }
 
@@ -16,6 +15,7 @@ class User < ActiveRecord::Base
     :confirmation => true,
     :length => { :minimum => 6},
     :if => lambda{ new_record? || !password.nil? }
+
 
   has_secure_password
 

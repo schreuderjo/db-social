@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You have successfully signed up!"
       redirect_to root_path
     else
-      @errors = @user.errors
+      @user.errors
       render new_user_path
     end
   end
