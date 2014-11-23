@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   //New post request
   $(".new-post-form-container").on("click", "#new-post-button", function(e) {
     e.preventDefault();
@@ -39,7 +40,6 @@ $(document).ready(function(){
 
     request.done(function(response){
       console.log(response.html);
-      debugger;
       $("*[data-post-id=" + postId +"]").replaceWith(response.html);
     });
 
@@ -47,12 +47,6 @@ $(document).ready(function(){
       console.log(response.html);
     });
   });
-  //   var href = $(this).attr("href");
-  //   var postId = href.match(/\d+/)[0];
-  //   var selectedText = $("*[data-post-id="+ postId +"]");
-  //   selectedText.toggleClass("hidden");
-  //   $("*[data_attr=" + postId +"]").toggleClass("hidden");
-
 
   //update edited post to post container
   $(".all-posts").submit(function(e){
@@ -76,10 +70,24 @@ $(document).ready(function(){
     });
   });
 
-
+  //delete post
   $(".all-posts").on("click", ".delete-post", function(e){
     e.preventDefault();
-    console.log("bar");
+
+    var postId = $(this).attr("data_attr");
+
+    var request = $.ajax({
+      url: '/posts/' + postId,
+      type: 'delete'
+    });
+
+    request.done(function(response){
+      $("*[data-post-container-id=" + response.postId +"]").remove();
+    });
+
+    request.fail(function(response){
+      console.log(response);
+    });
   });
 });
 
