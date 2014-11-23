@@ -3,11 +3,39 @@
   <div class="resources-container">
     <ul>
     <% @resources.each do |resource| %>
-
-        <li class="resource-link"><%= link_to resource.name, resource.url %> | <%=link_to 'Add to Favorite Resources', user_favorites_path(current_user), data_attr: resource.id, class: "add-to-favorites-link", remote:true %></li>
-        <li class="resource-description"><%= resource.description%></li>
-
-    <% end %>
+      <% if current_user.admin %>
+       <li class="resource-link"><%= link_to "Edit", edit_resource_path(resource.id)%> | <%= link_to "Delete", resource_path(resource.id), method: :delete, data: { confirm: "Are you sure?" } %> -
+        <% end %>
+      <%= link_to resource.name, resource.url %></li>
+      <li class="resource-description"><%= resource.description%></li>
+    <%end%>
     </ul>
   </div>
+  <% if current_user.admin %>
+  <hr>
+    <h3>Add a New DBC Resource</h3>
+    <%= form_for :resource, url: "/resources", method: "post" do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :url %><br>
+      <%= f.text_field :url %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </p>
+
+    <p>
+      <%= f.submit "Submit" %>
+    </p>
+    <% end %>
+  <% end %>
+
 </div>
+
+

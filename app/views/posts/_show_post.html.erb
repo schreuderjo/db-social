@@ -30,7 +30,7 @@
 
 <p><%= post.text %></p>
 
-<% if current_user.id == post.user.id %>
+<% if current_user.id == post.user.id || curent_user.admin %>
     <%= link_to "Delete", posts_path, class: "delete-post", remote: true %>
     <%= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
   <% end %>

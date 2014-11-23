@@ -20,7 +20,7 @@
     </div>
 
     <div class="delete-edit-action">
-      <% if current_user.id == post.user.id %>
+      <% if current_user.id == post.user.id || current_user.admin %>
         <%= link_to "Delete", posts_path, data_attr: post.id, class: "delete-post", remote: true %>
         <%= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
       <% end %>
