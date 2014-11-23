@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
   # get '/' => 'sessions#index'
   # post '/' => 'sessions#create'
   # delete '/' => 'sessions#destroy'
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :resources
-
+  resources :password_resets
   root 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
