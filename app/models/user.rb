@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
     :length => { :minimum => 6},
     :if => lambda{ new_record? || !password.nil? }
 
+  validates :tweet_size_advice, :length => { :maximum => 140 }
 
   has_secure_password
 
