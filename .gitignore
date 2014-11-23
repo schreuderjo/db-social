@@ -17,3 +17,4 @@
 
 #Ignore .DS_store files
 /db-social/db-social/app/views/posts/.DS_store
+.env
