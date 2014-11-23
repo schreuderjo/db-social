@@ -28,7 +28,7 @@ end
                     text: Faker::Lorem.sentence(8)  )
 end
 
-30.times do
+50.times do
   Resource.create!(   name: Faker::Lorem.words(2).join(" "),
                       url: Faker::Internet.url,
                       description: Faker::Lorem.sentence(5),
@@ -94,6 +94,22 @@ Resource.create!( name: "Events",
                   url: "https://www.google.com/calendar/embed?src=devbootcamp.com_3t7sqtcfo3uol2gj0o60r36r7g%40group.calendar.google.com&ctz=America/Chicago",
                   description: "Search for Dev Bootcamp events in Chicago",
                   global_resource: true)
+
+Resource.create!( name: "Meme Overflow",
+                  url: "http://www.memeoverflow.com/",
+                  description: "View, create, and vote on DBC Chicago memes.",
+                  global_resource: true)
+
+User.create!(first_name: Faker::Name.first_name,
+                last_name: Faker::Name.last_name,
+                email: "z@z.com",
+                password: "password",
+                avatar: Faker::Avatar.image,
+                quirk: Faker::Lorem.sentence(7),
+                tweet_size_advice: Faker::Lorem.sentence(3))
+Resource.all.each do |resource|
+  Favorite.create!(user_id: User.last.id, resource_id: resource.id)
+end
 
 
 
