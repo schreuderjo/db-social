@@ -1,6 +1,6 @@
 $(document).ready(function(){
   //New post request
-  $(".all-posts").on("click", "#new-post-button", function(e) {
+  $(".new-post-form-container").on("click", "#new-post-button", function(e) {
     e.preventDefault();
     $(".post-form").toggleClass("hidden");
   });
@@ -32,18 +32,19 @@ $(document).ready(function(){
 
     var href = $(this).attr("href");
     var postId = href.match(/\d+/)[0];
-
     var request = $.ajax({
       url: '/posts/' + postId,
       type: 'get'
     });
 
     request.done(function(response){
+      console.log(response.html);
+      debugger;
       $("*[data-post-id=" + postId +"]").replaceWith(response.html);
     });
 
     request.fail(function(response){
-      console.log(response);
+      console.log(response.html);
     });
   });
   //   var href = $(this).attr("href");

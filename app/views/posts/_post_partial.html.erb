@@ -1,6 +1,3 @@
-<p><%= post.text %></p>
-
-<% if current_user.id == post.user.id %>
-  <%= link_to "Delete", posts_path, class: "delete-post", remote: true %>
-  <%= link_to "Edit", posts_path(post), class: "edit-post-form", remote: true %>
-<% end %>
+<div class="post-text" data-post-id=<%= post.id%>>
+  <p><%= post.text %></p>
+</div>
