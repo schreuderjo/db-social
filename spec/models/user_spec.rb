@@ -36,7 +36,7 @@ describe User do
     end
 
     it 'fails when tweet_size_advice length is greater than 140' do
-      @valid_user.tweet_size_advice = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+      @valid_user.tweet_size_advice = ("z"*141)
       @tweet_advice_too_long = @valid_user
       expect(@tweet_advice_too_long).not_to be_valid
     end
