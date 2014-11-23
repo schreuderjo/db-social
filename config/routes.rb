@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :nices
   end
 
-  resources :resources
+  resources :resources 
+  
+  post "favorites/:resource_id" => "favorites#create", :as => :favorite
 
   root 'posts#index'
 
