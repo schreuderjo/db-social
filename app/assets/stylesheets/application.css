@@ -16,7 +16,11 @@
 
 
 
-
+.new-post-form-container {
+/*   position: absolute; */
+  float: right;
+  right: 0;
+}
 
 
 
@@ -233,9 +237,6 @@ form input[type="password"] {
   font-size: 14px;
 }
 
-.hidden {
-  display: none;
-}
 
 #dynamic-add {
   display: none;
@@ -385,3 +386,6 @@ form input[type="password"] {
   display: block;
 }
 
+.hidden {
+  display: none;
+}
