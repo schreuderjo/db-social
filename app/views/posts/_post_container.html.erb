@@ -13,9 +13,9 @@
 
   </div>
 
-    <div class="nice-action">
+    <div class="nice-action" data-nice-container-id=<%= post.id%>>
       <p class="nice-count"><%= "+#{post.nices.count}" %></p>
-      <%= link_to "Nice", url: "#", class: "nice-link" %>
+      <%= link_to "N" + ("i"*post.nices.count) + "ce", post_nices_path(post), class: "nice-link", remote: true %>
       <%= link_to "Comment", url: "#", class: "comment-link" %>
       <p class="updated-at" ><%= post.updated_at %></p>
     </div>
