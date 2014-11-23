@@ -10,13 +10,15 @@
   <p class="quirk"><%= @user.quirk %></p>
   <p class="quirk-label">TSPOA <span><em>Tweet Size Piece of Advice</em></span></p>
   <p class="tweet-size-advice"><%= @user.tweet_size_advice %></p>
-  <h4>Favorite Resources:</h4>
-  <ul>
-    <% @user.resources.each do |resource| %>
-      <li><%= link_to resource.name, resource.url %></li>
-    <% end %>
-  </ul>
+  <h4 class="favorite-resources">Favorite Resources:</h4>
   <% if current_user == @user %>
     <%= link_to "Manage Favorite Resources", user_favorites_path(current_user), class: "submit" %>
   <% end %>
+  <div class="resources-list">
+    <ul>
+      <% @user.resources.each do |resource| %>
+        <li><%= link_to resource.name, resource.url %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
