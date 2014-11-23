@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     unless current_user
       redirect_to new_session_path
     end
-    @posts = Post.all
+    @posts = Post.order("created_at DESC")
   end
 
   def show
@@ -31,7 +31,11 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.json {
+        render json: {postId: post.id}
+      }
+    end
   end
 
   def update
