@@ -1,19 +1,40 @@
-  <h2>Update Details</h2>
+<h2>Update Details</h2>
    <%= link_to "Change Password", "/users/#{@user.id}/passwords" %>
   <hr>
-<%= form_for :user, url: user_path, method: "put" do |f| %>
+  <%= form_for @user do |f| %>
   <p>
     <%= f.label :first_name %><br>
+    <% if @user.errors[:first_name].any? %>
+    <ul>
+      <% @user.errors[:first_name].each do |message| %>
+       <li><%= message %></li> 
+      <% end %>
+    </ul>
+  <% end %>
     <%= f.text_field :first_name %>
   </p>
 
   <p>
     <%= f.label :last_name %><br>
+      <% if @user.errors[:last_name].any? %>
+    <ul>
+      <% @user.errors[:last_name].each do |message| %>
+       <li><%= message %></li> 
+      <% end %>
+    </ul>
+  <% end %>
     <%= f.text_field :last_name %>
   </p>
 
   <p>
     <%= f.label :email %><br>
+      <% if @user.errors[:email].any? %>
+    <ul>
+      <% @user.errors[:email].each do |message| %>
+       <li><%= message %></li> 
+      <% end %>
+    </ul>
+  <% end %>
     <%= f.text_field :email %>
   </p>
 

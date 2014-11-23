@@ -1,6 +1,9 @@
 <h2>Change Password</h2>
 <hr>
 <%= form_for :user, url: "/users/#{@user.id}/passwords", method: "put" do |f| %>
+<% if @error %>
+    <li><%= @error %></li>
+  <%end%>
 <p>
   <%= f.label :current_password %><br>
   <%= f.password_field :current_password %>
@@ -8,7 +11,7 @@
 
 <p>
   <%= f.label :new_password %><br>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, placeholder: "Must be at least 6 characters" %>
 </p>
 
 <p>
