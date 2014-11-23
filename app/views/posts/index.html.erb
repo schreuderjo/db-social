@@ -1,5 +1,8 @@
 <div class="boot-profile">
   <!-- <h1 class="user-name"><img class="user-avatar" src=<%#="#{current_user.avatar}"%>><%#="#{current_user.first_name} #{current_user.last_name}" %></h1> -->
+  <% flash.each do |key, value| %>
+    <p><%= value %></p>
+  <% end %>
   <h1 class="user-name"><%= link_to image_tag(current_user.avatar, class: "user-avatar"), "/users/#{current_user.id}/" %><%=link_to"#{current_user.first_name} #{current_user.last_name}", "/users/#{current_user.id}/" %></h1>
 
     <h4>Favorite Resources:</h4>
