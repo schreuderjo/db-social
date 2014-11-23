@@ -1,0 +1,5 @@
+<div class="comment-container">
+  <%= link_to image_tag(comment.user.avatar), "/users/#{comment.user_id}/" %>
+  <%= comment.user.first_name%> <%= comment.user.last_name%>
+  <p><%= comment.text %></p>
+</div>
