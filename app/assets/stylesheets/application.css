@@ -16,7 +16,11 @@
 
 
 
-
+.new-post-form-container {
+/*   position: absolute; */
+  float: right;
+  right: 0;
+}
 
 
 

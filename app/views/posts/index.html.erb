@@ -7,9 +7,7 @@
   </div>
 </div>
 
-
-<div class="all-posts">
-
+<div class="new-post-form-container">
   <%= form_for :post, url: posts_path  do |f| %>
     <p><%= f.submit "New Post", id: "new-post-button" %></p>
   <% end %>
@@ -17,7 +15,10 @@
   <div class="post-form hidden">
     <%= render partial: "posts/new_post", layout: false %>
   </div>
+</div>
 
+
+<div class="all-posts">
   <% @posts.each do |post| %>
     <%= render partial: "posts/post_container", layout: false, locals: {post: post} %>
   <% end %>
