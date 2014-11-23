@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :nices
   end
+
   resources :resources
 
   root 'posts#index'

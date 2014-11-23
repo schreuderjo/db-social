@@ -1,7 +1,7 @@
 class NicesController < ApplicationController
+  #maybe add logic to prevent save if user_id and post_id already exist in the
+  #nice database
   def create
-    # Nice.create!(  user_id: (1..10).to_a.sample,
-    #                 post_id: (1..30).to_a.sample
     params[:user_id] = current_user.id
     @post = Post.find(params[:post_id])
     @nice = Nice.new(post_params)
