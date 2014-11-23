@@ -2,14 +2,6 @@ class ResourcesController < ApplicationController
   def index
     @resources = Resource.where(global_resource: true)
   end
-end
-
-#########################################################################
-
-class ResourcesController < ApplicationController
-  def index
-    @resources = Resource.where(global_resource: true)
-  end
 
   def create
     @resource = Resource.new(resource_params)

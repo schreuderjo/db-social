@@ -1,19 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ResourcesController, :type => :controller do
-
-  describe "GET #index" do
-    it "redirects to list of resources" do
-      get :index
-      expect(response).to render_template(:index)
-    end
-  end
-
-end
-######################################################################################
-require 'rails_helper'
-
-RSpec.describe ResourcesController, :type => :controller do
  let!(:user) {User.create(first_name: Faker::Name.first_name,
                           last_name: Faker::Name.last_name,
                           email: Faker::Internet.email,
