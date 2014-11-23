@@ -21,10 +21,14 @@
 
 
 
+
+
+
+
 .new-post-form-container {
 /*   position: absolute; */
 /*   float: right; */
-  
+
   position: relative;
   left: 48%;
   top: -18px
@@ -36,6 +40,10 @@ body {
   font-family: Sans-serif;
   background-color: #eeeeee;
   font-size: 16px;
+}
+
+h1 {
+  text-shadow: 1.5px 1px 1.5px white;
 }
 
 a {
@@ -67,7 +75,7 @@ ul li {
     margin: 0 5% 3% 5%;
     border-radius: 5px;
     box-shadow: 2px 3px 10px darkgrey;
-  
+
 }
 
 .poster-info {
@@ -81,7 +89,8 @@ ul li {
 /*   background-color: red; */
   margin-left: 3%;
   float: right;
-  width: 88%;
+  width: 70%;
+  padding-right: 10%;
 }
 
 .post-container img {
@@ -428,3 +437,18 @@ form input[type="password"] {
   display: none;
 }
 
+.resources-container .resource-link {
+  padding-bottom: 5px;
+}
+
+.resources-container .resource-description {
+  color: darkgrey;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.feed-link {
+  position: fixed;
+  left: 300px;
+
+}
