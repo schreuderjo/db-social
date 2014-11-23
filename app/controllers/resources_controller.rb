@@ -29,9 +29,14 @@ class ResourcesController < ApplicationController
 
   def destroy
     @resource = Resource.find(params[:id])
-    @resource.destroy
-    @resource.favorites.where(user_id: current_user.id).first.destroy
-    redirect_to "/users/#{current_user.id}/favorites"
+    if @resource.global_resource == false
+      @resource.destroy
+      @resource.favorites.where(user_id: current_user.id).first.destroy
+      redirect_to "/users/#{current_user.id}/favorites"
+    else
+      @resource.favorites.where(user_id: current_user.id).first.destroy
+      redirect_to "/users/#{current_user.id}/favorites"
+    end
   end
 
    private
