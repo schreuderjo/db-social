@@ -1,12 +1,13 @@
 $(document).ready(function(){
 
-  //New post request
+  //New post form drop down
   $(".new-post-form-container").on("click", "#new-post-button", function(e) {
     e.preventDefault();
     $(".post-form").toggleClass("hidden");
     $("#new-post-button").toggleClass("hidden");
   });
 
+  //new post server request
   $("#new-post").submit(function(e) {
     e.preventDefault();
 
@@ -36,6 +37,7 @@ $(document).ready(function(){
 
     var href = $(this).attr("href");
     var postId = href.match(/\d+/)[0];
+
     var request = $.ajax({
       url: '/posts/' + postId,
       type: 'get'

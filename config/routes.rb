@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   get "/users/:id/passwords" => 'passwords#edit'
   put "/users/:id/passwords" => 'passwords#update'
 
+
   resources :sessions
   resources :users do
     resources :favorites
   end
   resources :posts do
     resources :nices
+    resources :comments
   end
 
   resources :resources 

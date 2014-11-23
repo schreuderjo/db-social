@@ -16,7 +16,7 @@
     <div class="nice-action" data-nice-container-id=<%= post.id%>>
       <p class="nice-count"><%= "+#{post.nices.count}" %></p>
       <%= link_to "N" + ("i"*post.nices.count) + "ce", post_nices_path(post), class: "nice-link", remote: true %>
-      <%= link_to "Comment", url: "#", class: "comment-link" %>
+      <%= link_to "Comment", new_post_comment_path(post), class: "comment-link" %>
     </div>
 
     <div class="delete-edit-action">
