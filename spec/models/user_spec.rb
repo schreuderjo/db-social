@@ -31,8 +31,14 @@ describe User do
       expect(@missing_password).not_to be_valid
     end
 
-    it 'fails when passwerd length is less than 6' do
+    it 'fails when password length is less than 6' do
       expect(@invalid_password_length).not_to be_valid
+    end
+
+    it 'fails when tweet_size_advice length is greater than 140' do
+      @valid_user.tweet_size_advice = ("z"*141)
+      @tweet_advice_too_long = @valid_user
+      expect(@tweet_advice_too_long).not_to be_valid
     end
 
     it 'fails when email is invalid' do
@@ -65,5 +71,6 @@ describe User do
     it 'has a resources method' do
       expect(@valid_user).to respond_to(:resources)
     end
+
   end
 end
