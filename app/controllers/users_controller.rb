@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "You have successfully signed up!"
-      redirect_to root_path
+      session[:current_user_id] = @user.id
+      redirect_to '/'
     else
       @user.errors
       render new_user_path
