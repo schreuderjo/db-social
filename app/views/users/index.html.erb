@@ -1,0 +1,10 @@
+<div class="container">
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.last_name %>, <%= user.first_name %> - <%= link_to "Edit", edit_user_path(user.id)%> | <%= link_to "Delete", user_path(user.id), method: :delete, data: { confirm: "Are you sure?" } %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+      <!-- <h1 class="user-name"><img class="user-avatar" src=<%#=user.avatar %>><%#= user.first_name %> <%#= user.last_name %></h1> -->

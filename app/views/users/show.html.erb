@@ -1,8 +1,8 @@
 <div class="boot-profile">
   <h1 class="user-name"><img class="user-avatar" src=<%=@user.avatar %>><%= @user.first_name %> <%= @user.last_name %></h1>
 
-  <% if @user == current_user %>
-    <p class="edit-profile-link"><%= link_to "Edit profile", edit_user_path(current_user) %></p>
+  <% if @user == current_user || current_user.admin %>
+    <p class="edit-profile-link"><%= link_to "Edit profile", edit_user_path(@user) %></p>
   <% end %>
 
   <p class="email"><span>Email: </span><%= @user.email %></p>

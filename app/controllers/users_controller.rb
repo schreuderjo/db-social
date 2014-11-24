@@ -1,4 +1,14 @@
 class UsersController < ApplicationController
+
+  def index
+    if current_user.admin
+      @users = User.where('id <> ?' , current_user.id).order('last_name ASC')
+      render 'index'
+    else
+      redirect_to '/'
+    end
+  end
+
   def new
     @user = User.new
   end
@@ -31,6 +41,16 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy_posts
+    @user.destroy_resources
+    @user.destroy_favorites
+    @user.destroy
+    redirect_to "/users"
+  end
+
 
   private
   def user_params
