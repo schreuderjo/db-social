@@ -20,10 +20,12 @@ class PostsController < ApplicationController
     params[:post][:user_id] = current_user.id
     @post = Post.new(post_params)
     respond_to do |format|
-      if @post.save
-        format.json {
-          render json: {html: render_to_string(:partial => "post_container.html.erb", :locals => {:post => @post} )}
-        }
+      if (Time.now - Post.last.created_at) > 2
+        if @post.save
+          format.json {
+            render json: {html: render_to_string(:partial => "post_container.html.erb", :locals => {:post => @post} )}
+          }
+        end
       end
     end
   end
