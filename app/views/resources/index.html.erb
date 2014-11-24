@@ -4,9 +4,12 @@
     <ul>
     <% @resources.each do |resource| %>
       <% if current_user.admin %>
-       <li class="resource-link"><%= link_to "Edit", edit_resource_path(resource.id)%> | <%= link_to "Delete", resource_path(resource.id), method: :delete, data: { confirm: "Are you sure?" } %> -
-        <% end %>
-      <%= link_to resource.name, resource.url %></li>
+       <li class="resource-link">
+        <%= link_to "Edit", edit_resource_path(resource.id)%> |
+        <%= link_to "Delete", resource_path(resource.id), method: :delete, data: { confirm: "Are you sure?" } %> -
+      <% end %>
+      <%= link_to resource.name, resource.url %> |
+      <%=link_to 'Add to Favorite Resources', user_favorites_path(current_user), data_attr: resource.id, class: "add-to-favorites-link", remote:true %></li></li>
       <li class="resource-description"><%= resource.description%></li>
     <%end%>
     </ul>
@@ -37,5 +40,4 @@
   <% end %>
 
 </div>
-
 
