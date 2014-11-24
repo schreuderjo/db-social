@@ -36,6 +36,8 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
+![phasebook schema design](schema.png "phasebook schema design")
+
 #phasebook
 phasebook is a social site for DBC students which is in early development.
 ##Site Features
@@ -52,5 +54,17 @@ phasebook is a social site for DBC students which is in early development.
 
   * View and edit personal profile and favorite resources
   * View other user profiles
+
+##login page
+![phasebook login page](login.png "phasebook login page")
+
+##home/feed page
+![phasebook home page](main-feed.png "phasebook home page")
+
+##profile page
+![phasebook profile page](my-profile.png "phasebook profile page")
+
+##resources page
+![phasebook resources page](login.png "phasebook resourcses page")
 
 To view more project details on [trello](https://trello.com/b/ZKeoZoIk/db-social) contact @galeforcevr, @luminous14, @rockrgrrl, or @schreuderjo.
