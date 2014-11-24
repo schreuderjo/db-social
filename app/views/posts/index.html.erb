@@ -23,8 +23,16 @@
 
 
   <div class="new-post-form-container">
-    <%= form_for :post, url: posts_path  do |f| %>
-      <p><%= f.submit "New Post", id: "new-post-button" %></p>
+    <%= form_for :post, url: posts_path, html: {id: "new-post"}, remote: true    do |f| %>
+      <% flash.each do |key, value| %>
+        <p><%= value %></p>
+      <% end %>
+      <p>
+        <%= f.text_area :text, :placeholder => "I could reeeeeealllly use a todo list..." %>
+      </p>
+      <p>
+        <%= f.submit "Post" , id: "new-post-button"%>
+      </p>
     <% end %>
 
     <div class="post-form hidden">

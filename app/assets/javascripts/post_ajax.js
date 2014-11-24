@@ -1,11 +1,11 @@
 $(document).ready(function(){
 
   //New post form drop down
-  $(".new-post-form-container").on("click", "#new-post-button", function(e) {
-    e.preventDefault();
-    $(".post-form").toggleClass("hidden");
-    $("#new-post-button").toggleClass("hidden");
-  });
+  // $(".new-post-form-container").on("click", "#new-post-button", function(e) {
+  //   e.preventDefault();
+  //   $(".post-form").toggleClass("hidden");
+  //   $("#new-post-button").toggleClass("hidden");
+  // });
 
   //new post server request
   $("#new-post").submit(function(e) {
@@ -20,14 +20,14 @@ $(document).ready(function(){
 
     request.done(function(response){
       $(".all-posts").prepend(response.html);
-      $(".post-form").toggleClass("hidden");
-      $("#new-post-button").toggleClass("hidden");
+      // $(".post-form").toggleClass("hidden");
+      // $("#new-post-button").toggleClass("hidden");
     });
 
     request.fail(function(response){
       console.log(response);
-      $(".post-form").toggleClass("hidden");
-      $("#new-post-button").toggleClass("hidden");
+      // $(".post-form").toggleClass("hidden");
+      // $("#new-post-button").toggleClass("hidden");
     });
   });
 
