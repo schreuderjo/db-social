@@ -8,6 +8,6 @@ class Post < ActiveRecord::Base
 
   def duplicate?
     users_last_post = User.find(self.user_id).posts.last
-    (users_last_post.text == self.text) && ((Time.now - Post.last.created_at) < 60)
+    users_last_post.text == self.text
   end
 end
