@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def index
     if current_user.admin
-      @users = User.where('id <> ?' , current_user.id).order('last_name ASC')
+      @users = User.where('email <> ?' , "admin@admin.com").order('last_name ASC')
+      @user
       render 'index'
     else
       redirect_to '/'
@@ -34,9 +35,20 @@ class UsersController < ApplicationController
   end
 
   def update
+
+    if params[:admin]
+      params[:user][:admin] = true
+    else
+      params[:user][:admin] = false
+    end
     @user = User.find(params[:id])
+
     if @user.update(user_params)
-      redirect_to @user
+      if params[:user][:admin] != nil
+        redirect_to '/users'
+      else
+        redirect_to @user
+      end
     else
       render 'edit'
     end
@@ -44,17 +56,14 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy_posts
-    @user.destroy_resources
-    @user.destroy_favorites
-    @user.destroy
+    @user.destroy_user
     redirect_to "/users"
   end
 
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :quirk, :avatar, :tweet_size_advice)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :quirk, :avatar, :tweet_size_advice, :admin)
   end
 
 end

@@ -1,10 +1,20 @@
 <div class="container">
+  <h1>Manage Users</h1>
+  <h3>Remember think before you act!</h3>
   <ul>
     <% @users.each do |user| %>
-      <li><%= user.last_name %>, <%= user.first_name %> - <%= link_to "Edit", edit_user_path(user.id)%> | <%= link_to "Delete", user_path(user.id), method: :delete, data: { confirm: "Are you sure?" } %></li>
+      <% unless user == current_user %>
+      <li>
+        <img class="user-avatar-tiny <%= unless user.admin then "invisible" end %>" src="http://png-5.findicons.com/files/icons/1620/crystal_project/128/keditbookmarks.png">
+        <img class="user-avatar-tiny" src=<%=user.avatar %>>
+        <%= link_to "Edit", edit_user_path(user.id)%> |
+        <%= link_to "Delete", user_path(user.id), method: :delete, data: { confirm: "Are you sure?" } %> -
+        <%= link_to "#{user.last_name}, #{user.first_name}", "/users/#{user.id}" %> -
+        ID: <%= user.id %>
+      </li>
+      <% end %>
     <% end %>
   </ul>
 </div>
 
 
-      <!-- <h1 class="user-name"><img class="user-avatar" src=<%#=user.avatar %>><%#= user.first_name %> <%#= user.last_name %></h1> -->

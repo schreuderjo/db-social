@@ -131,6 +131,10 @@ ul li {
 
 }
 
+.user-avatar-tiny {
+  height: 1em;
+}
+
 .temp-user-id {
   display: none;
 }
@@ -451,6 +455,10 @@ form input[type="password"] {
 
 .hidden {
   display: none;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .resources-container .resource-link {

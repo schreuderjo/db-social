@@ -1,13 +1,20 @@
 <h2>Update Details</h2>
    <%= link_to "Change Password", "/users/#{@user.id}/passwords" %>
+
   <hr>
   <%= form_for @user do |f| %>
+  <% if current_user.admin && current_user != @user %>
+  <p>
+    <%= check_box_tag(:admin, 1, if @user.admin then true end) %>
+    <%= label_tag(:admin, "Admin") %>
+  </p>
+  <% end %>
   <p>
     <%= f.label :first_name %><br>
     <% if @user.errors[:first_name].any? %>
     <ul>
       <% @user.errors[:first_name].each do |message| %>
-       <li><%= message %></li> 
+       <li><%= message %></li>
       <% end %>
     </ul>
   <% end %>
@@ -19,7 +26,7 @@
       <% if @user.errors[:last_name].any? %>
     <ul>
       <% @user.errors[:last_name].each do |message| %>
-       <li><%= message %></li> 
+       <li><%= message %></li>
       <% end %>
     </ul>
   <% end %>
@@ -31,7 +38,7 @@
       <% if @user.errors[:email].any? %>
     <ul>
       <% @user.errors[:email].each do |message| %>
-       <li><%= message %></li> 
+       <li><%= message %></li>
       <% end %>
     </ul>
   <% end %>
