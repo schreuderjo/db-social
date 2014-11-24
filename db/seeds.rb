@@ -112,10 +112,9 @@ Resource.all.each do |resource|
   Favorite.create!(user_id: User.last.id, resource_id: resource.id)
 end
 
-User.create!( first_name: "David",
-              last_name: "Lamps",
-              email: "davidlamps@gmail.com",
+User.create!( first_name: "admin",
+              last_name: "admin",
+              email: "admin@admin.com",
               password: "password",
               admin: true)
-
 
