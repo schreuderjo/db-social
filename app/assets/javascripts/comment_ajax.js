@@ -1,21 +1,21 @@
 $(document).ready(function(){
   //retrieve comment form
-  $(".all-posts").on("click", ".comment-link", function(e){
-    e.preventDefault();
+  // $(".all-posts").on("click", ".comment-link", function(e){
+  //   e.preventDefault();
 
-    var request = $.ajax({
-      url: $(this).attr("href"),
-      type: "get"
-    });
+  //   var request = $.ajax({
+  //     url: $(this).attr("href"),
+  //     type: "get"
+  //   });
 
-    request.done(function(response){
-      $("*[data-post-container-id=" + response.postId +"]").append(response.html);
-    });
+  //   request.done(function(response){
+  //     $("*[data-post-container-id=" + response.postId +"]").append(response.html);
+  //   });
 
-    request.fail(function(response){
-      console.log(response);
-    });
-  });
+  //   request.fail(function(response){
+  //     console.log(response);
+  //   });
+  // });
 
   //new comment submission
   $(".all-posts").on("submit", "#new-comment", function(e){
@@ -32,7 +32,7 @@ $(document).ready(function(){
 
     request.done(function(response){
       $("*[data-comment-container-id=" + postId +"]").append(response.html);
-      $("#new-comment").remove();
+      // $("#new-comment").remove();
       console.log(response);
     });
 

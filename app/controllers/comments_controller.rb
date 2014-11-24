@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
-  def new
-    @post = Post.find(params[:post_id])
-    respond_to do |format|
-      format.json {
-          render json: {postId: params[:post_id], html: render_to_string(:partial => "comment_form.html.erb", :locals => {:post => @post} )}
-        }
-    end
-  end
+  # def new
+  #   @post = Post.find(params[:post_id])
+  #   respond_to do |format|
+  #     format.json {
+  #         render json: {postId: params[:post_id], html: render_to_string(:partial => "comment_form.html.erb", :locals => {:post => @post} )}
+  #       }
+  #   end
+  # end
 
   def create
     @post = Post.find(params[:post_id])
