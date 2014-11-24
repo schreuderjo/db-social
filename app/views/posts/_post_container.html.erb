@@ -16,7 +16,6 @@
     <div class="nice-action" data-nice-container-id=<%= post.id%>>
       <p class="nice-count"><%= "+#{post.nices.count}" %></p>
       <%= link_to "N" + ("i"*post.nices.count) + "ce", post_nices_path(post), class: "nice-link", remote: true %>
-      <%= link_to "Comment", new_post_comment_path(post), class: "comment-link" %>
     </div>
 
     <div class="delete-edit-action">
@@ -39,6 +38,21 @@
         <!-- and here -->
       <% end %>
     </div>
+
+    <%= form_for :comment, url: posts_path, html: {id: "new-comment", data_attr: post.id}, remote: true do |f| %>
+
+      <% flash.each do |key, value| %>
+        <p><%= value %></p>
+      <% end %>
+
+      <p>
+        <%= f.text_area :text %>
+      </p>
+
+      <p>
+        <%= f.submit "Comment"%>
+      </p>
+    <% end %>
 
 </div>
 
