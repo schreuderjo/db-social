@@ -20,17 +20,22 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+
   def destroy_posts
     self.posts.each do |post|
       post.destroy
-      nices = Nice.where(post_id: post.id)
-      nices.each do |nice|
-        nice.destroy
-      end
-      comments = Comment.where(post_id: post.id)
-      comments.each do |comment|
-        comment.destroy
-      end
+    end
+  end
+
+  def destroy_nices
+    self.nices.each do |nice|
+      nice.destroy
+    end
+  end
+
+  def destroy_comments
+    self.comments.each do |comment|
+      comment.destroy
     end
   end
 
@@ -48,5 +53,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def destroy_user
+    self.destroy_posts
+    self.destroy_nices
+    self.destroy_comments
+    self.destroy_resources
+    self.destroy_favorites
+    self.destroy
+  end
 
 end
