@@ -5,4 +5,9 @@ class Post < ActiveRecord::Base
 
   validates :text, presence: true
   validates :text, length: { in: 1..141 }
+
+  def duplicate?
+    users_last_post = User.find(self.user_id).posts.last
+    (users_last_post.text == self.text) && ((Time.now - Post.last.created_at) < 60)
+  end
 end
