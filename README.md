@@ -36,8 +36,8 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-#db:social
-db:social is a social site for DBC students which is in early development.
+#phasebook
+phasebook is a social site for DBC students which is in early development.
 ##Site Features
   * Login & Sign up page
   * Home page
