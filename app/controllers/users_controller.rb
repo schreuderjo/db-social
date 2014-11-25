@@ -35,14 +35,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    unless current_user.admin
-      if params[:admin]
-        params[:user][:admin] = true
-      else
+
+    @user = User.find(params[:id])
+
+    if params[:admin]
+      params[:user][:admin] = true
+    else
+      unless @user == current_user
         params[:user][:admin] = false
       end
     end
-    @user = User.find(params[:id])
 
     if @user.update(user_params)
       if params[:user][:admin] != nil
